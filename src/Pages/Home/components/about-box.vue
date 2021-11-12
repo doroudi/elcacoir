@@ -4,9 +4,9 @@
     <div class="about-part animated">
       <div
         class="col-md-12 big-title"
-        style="padding-top: 60px; text-align: center; color: #fff"
+        
       >
-        <h2>شرکت فنی و مهندسی الکا</h2>
+        <h2>شرکت فنی و مهندسی <span class="highlight">الکا</span></h2>
         <h3>
           ارائه کننده خدمات فنی و مهندسی در زمینه های مهندسی برق ، الکترونیک ،
           شبکه ، نرم افزار روشنایی شهری - سیستم های امنیتی - اینترنت اشیاء
@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/variables';
 .about {
   .about-part {
     overflow: auto;
@@ -83,8 +84,13 @@ export default {
     .big-title {
       padding-top: 60px;
       text-align: center;
+      
       h2 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
+        font-weight: bold;
+        .highlight {
+            color: $second-color;
+        }
       }
       h3 {
         font-size: 1.5rem;

@@ -16,7 +16,7 @@
       >
         <div class="profile">
           <img
-            :src="`images/team/${user.image}`"
+            :src="user.image.url"
             :alt="user.fullName"
             class="person"
           />
@@ -58,55 +58,51 @@
 export default {
   data() {
     return {
-      users: [
-        {
-          id: 1,
-          fullName: "سامان قنبرپور",
-          responsibility: "موسس و مدیرعامل",
-          bio: "کارشناس ارشد برق الکترونیک",
-          image: "saman.jpeg",
-          social: {
-            linkedin: "samanelec",
-            instagram: "samanelec",
-            telegram: "samanelec",
-          },
-        },
-        {
-          id: 2,
-          fullName: "ساجد سیدخوشکار",
-          responsibility: "کارشناس شبکه و زیرساخت",
-          bio: "متخصص شبکه ، میکروتیک",
-          image: "khoshkar.jpg",
-          social: {
-            linkedin: "khoshkar.pro",
-            instagram: "khoshkar.pro",
-            telegram: "khoshkar.pro",
-          },
-        },
-        {
-          id: 1,
-          fullName: "",
-          responsibility: "",
-          bio: "",
-          social: {
-            linkedin: "",
-            instagram: "",
-            telegram: "",
-          },
-        },
-        {
-          id: 1,
-          fullName: "",
-          responsibility: "",
-          bio: "",
-          social: {
-            linkedin: "",
-            instagram: "",
-            telegram: "",
-          },
-        },
-      ],
+      users: []
     };
+  },
+  async created() {
+    this.users = await this.getUsers();
+  },
+  methods: {
+    getUsers: async () => {
+      const query = `
+            {
+                personCollection {
+                    items {
+                    id
+                    fullName
+                    role
+                    bio
+                    social
+                    image {
+                        url
+                    }
+                    }
+                }
+            }`;
+
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+      const fetchOptions = {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query,
+        }),
+      };
+      try {
+        const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+          response.json()
+        );
+        return response.data.personCollection.items;
+      } catch (error) {
+        console.log("🚀 ~ file: team.vue ~ line 103 ~ getUsers: ~ error", error)
+        throw new Error("Could not receive the data from Contentful!");
+      }
+    },
   },
 };
 </script>
