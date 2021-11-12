@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <loading></loading>
+    <home-page></home-page>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import HomePage from "./Pages/Home/HomePage.vue";
+import Loading from './components/loading.vue';
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    HomePage,
+    Loading
+  },
+  mounted() {
+    setTimeout(() => {
+      document.querySelector("body").classList.add("loaded");
+    }, 4000)
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import './assets/styles/style.scss';
 </style>
