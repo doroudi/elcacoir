@@ -78,7 +78,7 @@ body {
 }
 
 .loaded #loader {
-    display: none;
+    display: none !important;
 }
 
 h1,

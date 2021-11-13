@@ -16,9 +16,9 @@ export default {
     Loading
   },
   mounted() {
-      // setTimeout(() => {
-      //   document.querySelector("body").classList.add("loaded");
-      // }, 4000)
+    setTimeout(() => {
+      document.querySelector("body").classList.add("loaded");
+    }, 4000)
   }
 };
 </script>
