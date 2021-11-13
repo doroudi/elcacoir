@@ -1,8 +1,10 @@
 <template>
   <div id="cd-google-map" class="section">
-    <div id="google-container"></div>
-    <div id="cd-zoom-in"></div>
-    <div id="cd-zoom-out"></div>
+    <div id="google-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d815.8444524362319!2d45.77481742853203!3d38.44097703712404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1636790205983!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <!-- <div id="cd-zoom-in"></div>
+    <div id="cd-zoom-out"></div> -->
   </div>
 </template>
 
@@ -11,13 +13,12 @@ import { Loader } from "google-maps";
 
 export default {
   mounted() {
-    this.initializeMap();
+    // this.initializeMap();
   },
   methods: {
     async initializeMap() {
       const loader = new Loader("AIzaSyC6L3wXIMUbPqcJDv9zNPLvD_10VpyCNwA", {});
       const google = await loader.load();
-      console.log("🚀 ~ file: map.vue ~ line 20 ~ initializeMap ~ google", google)
       var latitude = 38.432616,
         longitude = 45.776042,
         map_zoom = 15;
