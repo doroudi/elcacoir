@@ -81,7 +81,6 @@ export default {
                     }
                 }
             }`;
-
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
       const fetchOptions = {
         method: "POST",
@@ -99,7 +98,6 @@ export default {
         );
         return response.data.personCollection.items;
       } catch (error) {
-        console.log("🚀 ~ file: team.vue ~ line 103 ~ getUsers: ~ error", error)
         throw new Error("Could not receive the data from Contentful!");
       }
     },
