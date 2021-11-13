@@ -1,6 +1,12 @@
 <template>
   <div id="loader-wrapper">
     <div id="loader">
+      <div class="logo">
+        <img id="logo" src="../assets/images/logo.png" alt="الکا" />
+        <h1>شرکت فنی و مهندسی <span class="highlight">الکا</span></h1>
+        <span style="color:#aaa">درحال بارگذاری</span>
+
+      </div>
       <div class="sk-folding-cube">
         <div class="sk-cube1 sk-cube"></div>
         <div class="sk-cube2 sk-cube"></div>
@@ -91,9 +97,14 @@ export default {};
   bottom: 0;
   width: 100%;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   z-index: 1000;
   z-index: 1001;
+
+  
   .sk-folding-cube {
     position: relative;
     top: 50%;
