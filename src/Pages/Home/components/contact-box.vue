@@ -19,7 +19,8 @@
         <div class="col-md-4 col-xs-12 contact-box">
           <box-icon name="phone"></box-icon>
           <h4 class="box-title">تلفن</h4>
-          <span><a href="tel:+984142270266">+98 414 2270 266</a></span>
+          <span><a href="tel:04142233952">0414 223 3952</a></span><br>
+          <span><a href="tel:09370470088">0937 047 0088</a></span>
         </div>
       </div>
       <h3 class="section-title">ارسال پیغام</h3>
