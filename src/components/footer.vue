@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="copywrite">
-      <span>تمامی حقوق برای شرکت فنی و مهندسی الکا محفوظ است - 1400</span>
+      <span>تمامی حقوق برای شرکت فنی مهندسی الکا محفوظ است - 1400</span>
     </div>
     <nav class="social">
       <ul>
@@ -18,7 +18,7 @@
         <li>
           <a
             title="اینستاگرام"
-            href="https://www.instagram.com/elca_ulrtrasonic/"
+            href="https://www.instagram.com/elca_ultrasonic/"
           >
             <box-icon type="logo" name="instagram"></box-icon>
           </a>

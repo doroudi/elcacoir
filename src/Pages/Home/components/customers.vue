@@ -28,18 +28,17 @@ export default {
   methods: {
       fetchCustomers: async () => {
            const query = `
-            {
+              {
                 customerCollection {
-                    items {
-                        id
-                        title
-                        description
-                        image {
-                            url
-                        }
+                  items {
+                    id,
+                    title,
+                    image {
+                      url
                     }
+                  }
                 }
-            }`;
+              }`;
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
       const fetchOptions = {
         method: "POST",
@@ -55,7 +54,7 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
         );
-        return response.data.personCollection.items;
+        return response.data.customerCollection.items;
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
       }

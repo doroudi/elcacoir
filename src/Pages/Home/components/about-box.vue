@@ -3,7 +3,7 @@
     <section-bar title="درباره"></section-bar>
     <div class="about-part animated">
       <div class="col-md-12 big-title">
-        <h2>شرکت فنی و مهندسی <span class="highlight">الکا</span></h2>
+        <h2>شرکت فنی مهندسی <span class="highlight">الکا</span></h2>
         <h3>
           تولید کننده تجهیزات التراسونیک ، سیستم های امنیتی ، اینترنت اشیا ،
           تجهیزات رنگ آمیزی جاده

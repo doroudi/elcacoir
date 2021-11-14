@@ -21,7 +21,7 @@
             class="person"
           />
           <h4 class="name">{{ user.fullName }}</h4>
-          <h4 class="details">{{ user.responsibility }}</h4>
+          <h4 class="details">{{ user.role }}</h4>
           <p class="bio">
             {{ user.bio }}
           </p>
@@ -42,7 +42,7 @@
             </a>
             <a
               v-show="user.social.linkedin != null"
-              :href="`https://linkedin.com/${user.social.linkedin}`"
+              :href="`https://ir.linkedin.com/in/${user.social.linkedin}`"
               target="_blank"
             >
               <box-icon name="linkedin" type="logo"></box-icon>
@@ -68,7 +68,7 @@ export default {
     getUsers: async () => {
       const query = `
             {
-                personCollection {
+                personCollection(order: id_ASC) {
                     items {
                     id
                     fullName
@@ -106,6 +106,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/variables';
 .profile {
   position: relative;
   text-align: center;
@@ -119,7 +120,7 @@ export default {
   }
   .name {
     font-size: 1.8rem;
-    color: #fd1;
+    color: $second-color;
   }
   .bio {
     margin-top: 20px;

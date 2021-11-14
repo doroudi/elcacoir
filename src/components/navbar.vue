@@ -72,7 +72,7 @@
     </div>
     <div class="logo">
       <img id="logo" src="../assets/images/logo.png" alt="الکا" />
-      <h1>شرکت فنی و مهندسی <span class="highlight">الکا</span></h1>
+      <h1>شرکت فنی مهندسی <span class="highlight">الکا</span></h1>
 
     </div>
   </header>
