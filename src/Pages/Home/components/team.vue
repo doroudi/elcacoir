@@ -28,14 +28,14 @@
           <div class="social">
             <a
               v-show="user.social.instagram"
-              :href="`https://linkedin.com/${user.social.instagram}`"
+              :href="`https://instagram.com/${user.social.instagram}`"
               target="_blank"
             >
               <box-icon type="logo" name="instagram"></box-icon>
             </a>
             <a
               v-show="user.social.telegram"
-              :href="`https://linkedin.com/${user.social.telegram}`"
+              :href="`https://t.me/${user.social.telegram}`"
               target="_blank"
             >
               <box-icon type="logo" name="telegram"></box-icon>

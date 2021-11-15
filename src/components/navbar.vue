@@ -3,27 +3,27 @@
     <nav class="main-nav">
       <ul>
         <li>
-          <a class="menu-item" ui-sref-active="active" ui-sref="home"
+          <a class="menu-item" ui-sref="home"
             >صفحه نخست</a
           >
         </li>
         <li>
-          <a class="menu-item" href="http://chipsaz.ir/" target="_blank"
+          <a class="menu-item" href="http://elcaco.ir/ltrasonic" target="_blank"
             >التراسونیک</a
           >
         </li>
         <li>
-          <a class="menu-item" ui-sref-active="active" ui-sref="iot"
+          <a class="menu-item" href="http://elcaco.ir/iot" ui-sref="iot"
             >اینترنت اشیاء</a
           >
         </li>
         <li>
-          <a class="menu-item" ui-sref-active="active" ui-sref="network"
+          <a class="menu-item" href="http://elcaco.ir/security" 
             >محصولات امنیتی</a
           >
         </li>
         <li>
-          <a class="menu-item" ui-sref-active="active" ui-sref="software"
+          <a class="menu-item" href="http://elcaco.ir/other" ui-sref="software"
             >سایر محصولات</a
           >
         </li>

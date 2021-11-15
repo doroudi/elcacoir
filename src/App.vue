@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import "./assets/fonts/shabnam/css/shabnam.css";
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import HomePage from "./Pages/Home/HomePage.vue";
 import Loading from './components/loading.vue';
