@@ -25,7 +25,7 @@
           <p class="bio">
             {{ user.bio }}
           </p>
-          <div class="social">
+          <div class="social" v-if="user.social">
             <a
               v-show="user.social.instagram"
               :href="`https://instagram.com/${user.social.instagram}`"
