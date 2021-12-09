@@ -7,7 +7,7 @@
           <box-icon name="envelope"></box-icon>
           <h4 class="box-title">ایمیل</h4>
           <span>info[@]elcaco.ir</span> -
-          <span>elcaco[@]gmail.com</span> 
+          <span>elcaco[@]gmail.com</span>
         </div>
         <div class="col-md-4 col-xs-12 contact-box">
           <box-icon name="map"></box-icon>
@@ -19,7 +19,8 @@
         <div class="col-md-4 col-xs-12 contact-box">
           <box-icon name="phone"></box-icon>
           <h4 class="box-title">تلفن</h4>
-          <span><a href="tel:04142233952">0414 223 3952</a></span><br>
+          <span><a href="tel:04142233952">0414 223 3952</a></span
+          ><br />
           <span><a href="tel:09370470088">0937 047 0088</a></span>
         </div>
       </div>
@@ -56,11 +57,14 @@
           v-model="message.text"
           placeholder="متن"
         ></textarea>
-        <input
-          type="submit"
-          value="ارسال"
-          class="send-button"
-        />
+
+        <!-- captch -->
+        <div class="cpatcha-container">
+          <div class='mtcaptcha'></div>
+        </div>
+     
+        <!-- end captcha -->
+        <input type="submit" value="ارسال" class="send-button" />
       </form>
     </div>
   </div>
@@ -68,18 +72,23 @@
 
 <script>
 export default {
-    data() {
-        return {
-            message: {
-
-            }
-        }
-    },
-    methods: {
-        sendMessage() {}
-    }
+  data() {
+    return {
+      message: {},
+    };
+  },
+  methods: {
+    sendMessage() {},
+  },
 };
 </script>
 
-<style lav="scss" scoped>
+
+<style lang="scss" scoped>
+.cpatcha-container {
+  text-align: center;
+}
+.mtcaptcha {
+  display: inline-block;
+}
 </style>
