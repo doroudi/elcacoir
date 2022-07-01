@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import NavBar from '@/components/navbar.vue'
+import NavBar from '@/components/navbar-widget.vue'
 import ServicesBox from './components/services-box.vue'
 import AboutBox from './components/about-box.vue'
 import WorksBox from './components/works-box.vue'
 import ContactBox from './components/contact-box.vue'
 import AddressBox from './components/address-box.vue'
-import FooterBox from '@/components/footer.vue'
+import FooterBox from '@/components/footer-box.vue'
 
 export default {
     components: {

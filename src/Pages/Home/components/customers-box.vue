@@ -16,6 +16,7 @@
 </template>
 
 <script>
+// import 'core-js/modules/es.error.cause'
 export default {
   data() {
     return {
@@ -56,7 +57,7 @@ export default {
         );
         return response.data.customerCollection.items;
       } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
+        // throw new Error("Could not receive the data from Contentful!");
       }
       }
   }

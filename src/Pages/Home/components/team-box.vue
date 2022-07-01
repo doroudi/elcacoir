@@ -98,7 +98,7 @@ export default {
         );
         return response.data.personCollection.items;
       } catch (error) {
-        throw new Error("Could not receive the data from Contentful!");
+        // throw new Error("Could not receive the data from Contentful!");
       }
     },
   },
@@ -106,7 +106,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables';
+@import '@/assets/styles/variables.scss';
 .profile {
   position: relative;
   text-align: center;

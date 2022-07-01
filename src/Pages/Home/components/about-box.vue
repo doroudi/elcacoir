@@ -57,12 +57,11 @@
 </template>
 
 <script>
-import ElcaTeam from "./team.vue";
-import Map from "./map";
-import OurCustomers from "./customers.vue";
+import ElcaTeam from "./team-box.vue";
+import Map from "./map-box.vue";
+import OurCustomers from "./customers-box.vue";
 
 export default {
-  name: "About",
   components: {
     ElcaTeam,
     Map,
