@@ -20,9 +20,6 @@ body {
     line-height: 2;
 }
 
-.wrapper {
-    background: #fff;
-}
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -49,17 +46,17 @@ body {
     color: #fff;
 }
 
-@media only screen and (min-width: 768px) {
-    body {
-        margin: 25px;
-    }
-}
+// @media only screen and (min-width: 768px) {
+//     body .main-container.loaded {
+//         margin: 25px;
+//     }
+// }
 
-@media only screen and (min-width:1170px) {
-    body {
-        margin: 50px;
-    }
-}
+// @media only screen and (min-width:1170px) {
+//     body .main-container.loaded{
+//         margin: 50px;
+//     }
+// }
 
 #loader-wrapper #loader {
     position: fixed;
@@ -119,6 +116,8 @@ a {
     min-height: 100vh;
     position: relative;
     direction: rtl;
+    margin: 20px auto;
+    padding: 0;
 }
 
 header.menu {
@@ -271,9 +270,8 @@ header.menu.open {
             color: $main-color;
         }
     }
-    img#logo {
-        width: 130px;
-        height: auto;
+    .logo-holder {
+        height: 100px;
     }
 }
 

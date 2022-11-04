@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class="wrapper">
+  <div id="home" class="container wrapper">
     <nav-bar></nav-bar>
     <services-box></services-box>
     <about-box></about-box>

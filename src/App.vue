@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <loading></loading>
+    <!-- <loading></loading> -->
     <home-page></home-page>
   </div>
 </template>
@@ -9,18 +9,18 @@
 import "./assets/fonts/shabnam/css/shabnam.css";
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import HomePage from "./Pages/Home/HomePage.vue";
-import Loading from './components/app-loading.vue';
+// import Loading from './components/app-loading.vue';
 export default {
   name: "App",
   components: {
     HomePage,
-    Loading
+    // Loading
   },
-  mounted() {
-    setTimeout(() => {
-      document.querySelector("body").classList.add("loaded");
-    }, 4000)
-  }
+  // mounted() {
+  //   //setTimeout(() => {
+  //     document.querySelector("body").classList.add("loaded");
+  //   }, 4000)
+  // }
 };
 </script>
 

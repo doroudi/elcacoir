@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fa">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <title>شرکت فنی مهندسی الکا</title>
     <meta name="language" content="fa" />
     <meta name="document-type" content="Public" />
@@ -78,21 +78,333 @@
         ]
       }
     </script>
+
+    <!-- header styles -->
+    <style>
+      .ip-header {
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        min-height: 480px;
+        width: 100%;
+        height: 100%;
+        background: #f1f1f1;
+      }
+
+      .ip-header h1 {
+        margin: 0;
+      }
+
+      .ip-logo,
+      .ip-loader {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        cursor: default;
+        pointer-events: none;
+      }
+
+      .ip-logo {
+        top: 0;
+        height: 100%;
+        -webkit-transform: translate3d(0, 25%, 0);
+        transform: translate3d(0, 25%, 0);
+      }
+
+      .ip-loader {
+        bottom: 20%;
+      }
+
+      .ip-header .ip-inner {
+       display: block;
+        margin: 90px auto 0 auto;
+        width: 270px;
+      }
+
+      .ip-header .ip-logo svg {
+        min-width: 320px;
+        max-width: 480px;
+        width: 25%;
+      }
+
+      .ip-header .ip-logo svg path {
+        fill: #f7dc1e;
+      }
+
+      .ip-header .ip-loader svg path {
+        fill: none;
+        stroke-width: 6;
+      }
+
+      .ip-header .ip-loader svg path.ip-loader-circlebg {
+        stroke: #ddd;
+      }
+
+      .ip-header .ip-loader svg path.ip-loader-circle {
+        -webkit-transition: stroke-dashoffset 0.2s;
+        transition: stroke-dashoffset 0.2s;
+        stroke: #f7dc1e;
+      }
+
+      /* Content */
+      .ip-main {
+        overflow: hidden;
+        margin: 0 auto;
+        padding: 160px 0 10em 0;
+        max-width: 1100px;
+        width: 90%;
+      }
+
+      .ip-main h2 {
+        margin: 0;
+        padding: 0.5em 0 1em;
+        color: #f7dc1e;
+        text-align: center;
+        font-size: 4.25em;
+        font-size: 4vw;
+        line-height: 1;
+      }
+
+     
+      .box {
+        float: left;
+        padding: 3.5em;
+        width: 33.3%;
+        font-size: 0.7em;
+        line-height: 1.5;
+      }
+
+     
+
+      /* Animations */
+
+      /* Initial animation of header elements */
+      .loading .ip-logo,
+      .loading .ip-loader {
+        opacity: 1;
+        -webkit-animation: animInitialHeader 1s cubic-bezier(0.7, 0, 0.3, 1)
+          both;
+        animation: animInitialHeader 1s cubic-bezier(0.7, 0, 0.3, 1) both;
+      }
+
+      .loading .ip-loader {
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+      }
+
+      @-webkit-keyframes animInitialHeader {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 800px, 0);
+        }
+      }
+
+      @keyframes animInitialHeader {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 800px, 0);
+          transform: translate3d(0, 800px, 0);
+        }
+      }
+
+      /* Header elements when loading finishes */
+      .loaded .ip-logo,
+      .loaded .ip-loader {
+        opacity: 1;
+      }
+
+      .loaded .ip-logo {
+        -webkit-transform-origin: 50% 0;
+        transform-origin: 50% 0;
+        -webkit-animation: animLoadedLogo 1s cubic-bezier(0.7, 0, 0.3, 1)
+          forwards;
+        animation: animLoadedLogo 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+      }
+
+      @-webkit-keyframes animLoadedLogo {
+        to {
+          -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0)
+            scale3d(0.65, 0.65, 1);
+        }
+      }
+
+      @keyframes animLoadedLogo {
+        to {
+          -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0)
+            scale3d(0.65, 0.65, 1);
+          transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0)
+            scale3d(0.65, 0.65, 1);
+        }
+      }
+
+      .loaded .ip-loader {
+        -webkit-animation: animLoadedLoader 0.5s cubic-bezier(0.7, 0, 0.3, 1)
+          forwards;
+        animation: animLoadedLoader 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+      }
+
+      @-webkit-keyframes animLoadedLoader {
+        to {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+        }
+      }
+
+      @keyframes animLoadedLoader {
+        to {
+          opacity: 0;
+          -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+          transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+        }
+      }
+
+      /* Change the color of the logo */
+      .loaded .ip-logo svg path {
+        -webkit-transition: all 0.5s ease 0.3s;
+        transition: all 0.5s ease 0.3s;
+        fill: #fff;
+      }
+
+      /* Header animation when loading finishes */
+      .loaded .ip-header {
+        -webkit-animation: animLoadedHeader 1s cubic-bezier(0.7, 0, 0.3, 1)
+          forwards;
+        animation: animLoadedHeader 1s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+      }
+
+      @-webkit-keyframes animLoadedHeader {
+        to {
+          -webkit-transform: translate3d(0, -100%, 0);
+        }
+      }
+
+      @keyframes animLoadedHeader {
+        to {
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+      }
+
+      /* Content animations */
+      .loaded .ip-main h2,
+      .loaded .ip-main .browser,
+      .loaded .ip-main .browser .box,
+      .loaded .codrops-demos {
+        -webkit-animation: animLoadedContent 1s cubic-bezier(0.7, 0, 0.3, 1)
+          both;
+        animation: animLoadedContent 1s cubic-bezier(0.7, 0, 0.3, 1) both;
+      }
+
+      .loaded .ip-main .browser,
+      .loaded .ip-main .browser .box:first-child {
+        -webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+      }
+
+      .loaded .ip-main .browser .box:nth-child(2) {
+        -webkit-animation-delay: 0.15s;
+        animation-delay: 0.15s;
+      }
+
+      .loaded .ip-main .browser .box:nth-child(3) {
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+      }
+
+      @-webkit-keyframes animLoadedContent {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 200px, 0);
+        }
+      }
+
+      @keyframes animLoadedContent {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 200px, 0);
+          transform: translate3d(0, 200px, 0);
+        }
+      }
+
+      /* Change layout class for header */
+      .layout-switch .ip-header {
+        position: absolute;
+      }
+
+      /* No JS */
+      .no-js .ip-header {
+        position: relative;
+        min-height: 0px;
+      }
+
+      .no-js .ip-header .ip-logo {
+        margin-top: 20px;
+        height: 180px;
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+      }
+
+      .no-js .ip-header .ip-logo svg path {
+        fill: #fff;
+      }
+
+      /* Media queries */
+
+      @media screen and (max-width: 45em) {
+        .ip-main h2 {
+          font-size: 2.25em;
+          font-size: 10vw;
+        }
+
+        .box {
+          width: 100%;
+        }
+      }
+    </style>
+    <!-- end header styles -->
+    <script src="scripts/modernizr.custom.js"></script>
+    
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
     </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-
-
-     <script>
-      (function(i, s, o, g, r, a, m) {
+    <div id="main-container" class="main-container">
+      <!-- initial header -->
+      <header class="ip-header">
+        <h1 class="ip-logo">
+          <img alt="ElcaCo logo" src="/images/logo.svg" class="ip-inner" />
+         </h1>
+        <div class="ip-loader">
+          <!-- <h1>شرکت فنی مهندسی <span class="highlight">الکا</span></h1> -->
+          <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+            <path
+              class="ip-loader-circlebg"
+              d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"
+            />
+            <path
+              id="ip-loader-circle"
+              class="ip-loader-circle"
+              d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"
+            />
+          </svg>
+        </div>
+      </header>
+      <div id="app"></div>
+      <!-- built files will be auto injected -->
+    </div>
+    <script>
+      (function (i, s, o, g, r, a, m) {
         i["GoogleAnalyticsObject"] = r;
         (i[r] =
           i[r] ||
-          function() {
+          function () {
             (i[r].q = i[r].q || []).push(arguments);
           }),
           (i[r].l = 1 * new Date());
@@ -111,30 +423,33 @@
       ga("create", "UA-82744760-1", "auto");
       ga("send", "pageview");
     </script>
+    <script>
+      var mtcaptchaConfig = {
+        sitekey: "MTPublic-X66KhhIc3",
+        lang: "fa",
+      };
+      (function () {
+        var mt_service = document.createElement("script");
+        mt_service.async = true;
+        mt_service.src =
+          "https://service.mtcaptcha.com/mtcv1/client/mtcaptcha.min.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(mt_service);
+        var mt_service2 = document.createElement("script");
+        mt_service2.async = true;
+        mt_service2.src =
+          "https://service2.mtcaptcha.com/mtcv1/client/mtcaptcha2.min.js";
+        (
+          document.getElementsByTagName("head")[0] ||
+          document.getElementsByTagName("body")[0]
+        ).appendChild(mt_service2);
+      })();
+    </script>
 
-        <script>
-          var mtcaptchaConfig = {
-            sitekey: "MTPublic-X66KhhIc3",
-            lang: "fa",
-          };
-          (function () {
-            var mt_service = document.createElement("script");
-            mt_service.async = true;
-            mt_service.src =
-              "https://service.mtcaptcha.com/mtcv1/client/mtcaptcha.min.js";
-            (
-              document.getElementsByTagName("head")[0] ||
-              document.getElementsByTagName("body")[0]
-            ).appendChild(mt_service);
-            var mt_service2 = document.createElement("script");
-            mt_service2.async = true;
-            mt_service2.src =
-              "https://service2.mtcaptcha.com/mtcv1/client/mtcaptcha2.min.js";
-            (
-              document.getElementsByTagName("head")[0] ||
-              document.getElementsByTagName("body")[0]
-            ).appendChild(mt_service2);
-          })();
-        </script>
+    <script src="scripts/classie.js"></script>
+    <script src="scripts/pathLoader.js"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>

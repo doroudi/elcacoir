@@ -1,20 +1,19 @@
-import Modernizr from './modernizr.custom';
-import PathLoader from './pathLoader';
-import classie from './classie';
+(function() {
 
-
-
-	var
-		container = document.getElementById( 'ip-container' ),
+	var support = { animations : Modernizr.cssanimations },
+		container = document.getElementById( 'main-container' ),
 		header = container.querySelector( 'header.ip-header' ),
 		loader = new PathLoader( document.getElementById( 'ip-loader-circle' ) ),
 		animEndEventNames = { 'WebkitAnimation' : 'webkitAnimationEnd', 'OAnimation' : 'oAnimationEnd', 'msAnimation' : 'MSAnimationEnd', 'animation' : 'animationend' },
 		// animation end event name
 		animEndEventName = animEndEventNames[ Modernizr.prefixed( 'animation' ) ];
 
-	function Loading() {
+	function init() {
 		var onEndInitialAnimation = function() {
-			this.removeEventListener( animEndEventName, onEndInitialAnimation );
+			if( support.animations ) {
+				this.removeEventListener( animEndEventName, onEndInitialAnimation );
+			}
+
 			startLoading();
 		};
 
@@ -23,8 +22,13 @@ import classie from './classie';
 
 		// initial animation
 		classie.add( container, 'loading' );
-		container.addEventListener( animEndEventName, onEndInitialAnimation );
-		
+
+		if( support.animations ) {
+			container.addEventListener( animEndEventName, onEndInitialAnimation );
+		}
+		else {
+			onEndInitialAnimation();
+		}
 	}
 
 	function startLoading() {
@@ -38,20 +42,26 @@ import classie from './classie';
 
 					// reached the end
 					if( progress === 1 ) {
-						classie.remove( container, 'loading' );
+						classie.remove(container, "loading");
 						classie.add( container, 'loaded' );
 						clearInterval( interval );
 
 						var onEndHeaderAnimation = function(ev) {
-							if( ev.target !== header ) return;
-							this.removeEventListener( animEndEventName, onEndHeaderAnimation );
+							if( support.animations ) {
+								if( ev.target !== header ) return;
+								this.removeEventListener( animEndEventName, onEndHeaderAnimation );
+							}
 
 							classie.add( document.body, 'layout-switch' );
 							window.removeEventListener( 'scroll', noscroll );
 						};
 
+						if( support.animations ) {
 							header.addEventListener( animEndEventName, onEndHeaderAnimation );
-						
+						}
+						else {
+							onEndHeaderAnimation();
+						}
 					}
 				}, 80 );
 		};
@@ -63,4 +73,6 @@ import classie from './classie';
 		window.scrollTo( 0, 0 );
 	}
 
-export default Loading;
+	init();
+
+})();
