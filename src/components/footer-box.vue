@@ -1,7 +1,7 @@
 <template>
   <footer>
     <div class="copywrite">
-      <span>تمامی حقوق برای شرکت فنی مهندسی الکا محفوظ است - 1400</span>
+      <span>تمامی حقوق برای شرکت فنی مهندسی الکا محفوظ است - 1401</span>
     </div>
     <nav class="social">
       <ul>
